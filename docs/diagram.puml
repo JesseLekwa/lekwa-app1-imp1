@@ -1,0 +1,35 @@
+@startuml
+
+
+
+class toDoList {
+toDoListEntry[] entries
+String title
+}
+
+class toDoListEntry {
+String description
+String dueDate
+boolean completeness
+}
+
+class fileReader {
++public toDoList readListsFromFile(String filePath)
+}
+
+class fileWriter {
++void saveListsToFile(String filePath)
+}
+
+
+
+
+
+class Application {
+}
+
+toDoList --* toDoListEntry: contains
+fileReader --* toDoList : creates
+toDoList --* fileWriter
+
+@enduml
